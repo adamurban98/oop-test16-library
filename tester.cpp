@@ -21,6 +21,17 @@ TEMPLATE_TEST_CASE("Item", "[item]", Dvd, Book) {
     REQUIRE(b.is_borrowed() == false);
     REQUIRE(c.is_borrowed() == false);
   }
+  SECTION("test user when borrowed"){
+    a.borrow("adamkauser");
+    b.borrow("adamkauser");
+    c.borrow("adamkauser");
+    REQUIRE(a.is_borrowed() == true);
+    REQUIRE(b.is_borrowed() == true);
+    REQUIRE(c.is_borrowed() == true);
+    REQUIRE(a.get_user() == "adamkauser");
+    REQUIRE(b.get_user() == "adamkauser");
+    REQUIRE(c.get_user() == "adamkauser");
+  }
 }
 
 TEST_CASE("Get todays Date") {
@@ -33,6 +44,7 @@ TEST_CASE("Test Date opertator+"){
     REQUIRE(d + i == Date(1+i,2,2003));
   }
 }
+
 
 
 TEST_CASE("Test borrow Date") {

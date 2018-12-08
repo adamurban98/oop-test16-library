@@ -37,7 +37,7 @@ const std::string Item::get_user() const{
 
 
 Book::Book(std::string name): Item(name) {
-		typeName = "book";
+	typeName = "book";
 }
 
 Book::~Book(){
