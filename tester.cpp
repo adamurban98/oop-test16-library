@@ -24,13 +24,13 @@ TEMPLATE_TEST_CASE("Item", "[item]", Dvd, Book) {
 }
 
 TEST_CASE("Get todays Date") {
-  REQUIRE(Date::get_today() == Date(1, 12, 2016));
+  REQUIRE(Date::get_today() == Date(7, 12, 2016));
 }
 
 TEST_CASE("Test Date opertator+"){
   Date d(1,2,2003);
   for(int i = 0; i < 31; i+=5){
-    REQUIRE(d + 0 == Date(1+i,2,2003));
+    REQUIRE(d + i == Date(1+i,2,2003));
   }
 }
 
@@ -39,12 +39,12 @@ TEST_CASE("Test borrow Date") {
   WHEN("Book") {
     Book book("myBook");
     book.borrow("user");
-    REQUIRE(book.get_deadline() == Date(21, 12, 2016));
+    REQUIRE(book.get_deadline() == Date(14, 12, 2016));
   }
   WHEN("Dvd") {
     Dvd dvd("myDvd");
     dvd.borrow("user");
-    REQUIRE(dvd.get_deadline() == Date(14, 12, 2016));
+    REQUIRE(dvd.get_deadline() == Date(21, 12, 2016));
   }
 }
 

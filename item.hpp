@@ -11,6 +11,7 @@ private:
 	bool borrowed;
 	std::string user;
 protected:
+	std::string typeName;
 	Date deadline;
 	Item(std::string name);
 public:
@@ -19,6 +20,7 @@ public:
 	bool is_borrowed() const;
 	std::string get_name() const;
 	virtual void set_deadline() = 0;
+	std::string get_typeName() const;
 	const Date& get_deadline() const;
 	const std::string get_user() const;
 };
